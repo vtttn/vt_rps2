@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CLASS 8 - Functions - Day 1</title>
+
+
+	<script type="text/javascript">
+		
+/*
+
+
+// DEFINING A FUNCTION
+
+	function hello(saysomething){
+		console.log(saysomething);
+	}
+
+	hello('how are you?');
+	hello('what are you doing?');
+
+	// returning a value
+
+	function addme(a,b) {
+		var total = a + b;
+			return total;
+	}
+
+	console.log(addme(1,2));
+		
+	// function arguement
+
+
+	function add() {
+		var sum = 0;
+
+		for(var i = 0; i < arguments.length; i++) {
+			sum += arguments[i];
+			// sum = sum + arguments[i]; // same thing as above with the +=
+		}
+		return sum;
+	}
+
+	console.log(add(1,2,3,4,5,6,7,8));
+
+
+
+// GRATUITY EXAMPLE
+
+	
+	var billAmount = 100;
+
+	function gratuity(billAmount) {
+
+		return billAmount * 0.2;
+	}
+
+
+	function totalWithGrat() {
+		var total = 0;
+		var tip = 0;
+
+		for(var i = 0; i < arguments.length; i++) {
+			total += arguments[i];
+			tip += gratuity(arguments[i]);
+		}
+
+		return total + tip;
+	}
+
+
+	console.log('Your new total including gratuity is: ' + totalWithGrat(billAmount));
+
+// easier exxample
+	// in the function function_name(), create a variable name in the parentheses. that variable is only a local variable. (plays inside the function, not outside) return is like the console.log inside a function. so when you do toCelsius(value) anywhere, it provides the return value 
+
+
+	function toCelsius(f) {
+    	return (5/9) * (f-32);
+	}
+
+	console.log(toCelsius(99));
+	console.log(toCelsius(55));
+
+
+// ANONYMOUS FUNCTION
+
+	// casual to declare a function on the fly without a name.
+
+	var caculator = {
+		add: function(a,b){
+			return a + b;},
+		parrot: function(a,b) {
+			return a + 5 + b + 23 * 9;} 
+	}
+
+	// parrot and add are keys for the var when you call the var.key
+	// cleaner code. you can put them all in one line
+
+	console.log(caculator.add(12,14));
+	console.log(caculator.parrot(1,5));
+
+
+
+// ANONYMOUS FUNCTIONS CONT w/ VAR
+
+	var myMystery = [ 
+		['anon','murder','scene'], // this array is 0!
+		{ name: 'anon object',
+			street: 'loyola street',
+			city: 'new orleans',}, //these arent nested
+		function(){ return 'anon function'},
+		function(feeling) { return 'how are you today? ' + feeling}
+	];
+
+	console.log(myMystery[0][2]); // calling array 0 and array 2 of 0!
+	console.log(myMystery[1].name); // remember that this how you call an object
+	console.log(myMystery[2]()); // need the parenthese for JS to know you're calling a function but there is no function_name because it was an anon function. undeclared name.
+	console.log(myMystery[3]('im fine thank you'));
+	console.log(myMystery[1].street);
+
+	
+
+
+// ANOTHER EXAMPLE
+
+
+	var me = {
+                firstname: 'Brian',
+                lastname: 'Jones',
+                children: ['Elijah','Archer','Lorelei'],
+                birthdate: '1973-07-25',
+                age: getAge('1973-07-25')
+    }
+
+
+        function getAge(dateString)
+        {
+            
+            var today = new Date();
+            var birthDate = new Date(dateString);
+            var age = today.getFullYear() - birthDate.getFullYear();
+            var m = today.getMonth() - birthDate.getMonth();
+            if (
+                m < 0 ||
+                (  m === 0 &&
+                    today.getDate() < birthDate.getDate())
+                )
+            {
+                age--;
+            }
+            return age;
+        }
+
+        // /console.log(me.age);
+
+        //console.log(me.children[me.children.indexOf('Archer')]);
+
+        console.log(me.children.sort());
+
+
+
+*/
+
+// RPS AGAIN T_T
+
+
+	hands = ['rock','paper','scissors']
+
+	function getHand(){
+		return hands[parseInt(Math.random()*10) %3];
+	}
+
+	playerA = {
+		name: 'JOE',
+		playHand: getHand(),
+		score: 0,
+	}
+
+	playerB = {
+		name: 'JIM',
+		playHand: getHand(),
+		score: 0,
+	};
+
+
+
+
+	function playRound() {
+
+		switch(playerA.playHand + playerB.playHand) {
+			case 'rockscissors':
+			case 'scissorspaper':
+			case 'paperrock':
+				console.log(playerA.name + ': ' + playerA.playHand);
+				console.log(playerB.name + ': ' + playerB.playHand);
+				console.log(playerA.name + ' is the winner!');
+				return +1;
+				break;
+			case 'rockpaper':
+			case 'paperscissors':
+			case 'scissorsrock':
+				console.log(playerA.name + ': ' + playerA.playHand);
+				console.log(playerB.name + ': ' + playerB.playHand)
+				console.log(playerB.name + ' is the winner!');
+				return -1;
+				break;
+			case 'scissorsscissors':
+			case 'rockrock':
+			case 'paperpaper':
+				console.log(playerA.name + ': ' + playerA.playHand)
+				console.log(playerB.name + ': ' + playerB.playHand)
+				console.log("It's a tie! Try again!");
+				return null;
+				break;
+		}
+	};
+
+
+
+	function playGame(){
+		var playUntil = 5;
+		var winner = playRound();
+		var playerAwin = 0
+		var playerBwin = 0
+		
+
+
+			// if (winner == 1) {
+			// 	playerAwin++;
+			// } else if (winner == -1) {
+			// 	playerBwin++;
+			// }
+
+			// while (playerAwin < playUntil && playerBwin < playUntil) {
+			// 	playRound();
+			// }
+
+			while(playerAwin < playUntil && playerBwin < playUntil){
+				playRound() 
+    			
+					if (winner == +1) {
+						playerAwin++;
+					} else if (winner == -1) {
+						playerBwin++;
+					}
+			}
+
+			if (playerAwin > playerBwin) {
+				console.log(playerA.name + ' is the game winner!');
+			} else {
+				console.log(playerB.name + ' is the game winner!');
+			}
+		}
+
+
+	playGame()
+
+
+	</script>
+
+</head>
+<body>
+
+</body>
+</html>
