@@ -32,6 +32,18 @@
 
 	function playRound() {
 
+		playerA = {
+		name: 'JOE',
+		playHand: getHand(),
+		score: 0,
+	}
+
+		playerB = {
+		name: 'JIM',
+		playHand: getHand(),
+		score: 0,
+	};
+
 		switch(playerA.playHand + playerB.playHand) {
 			case 'rockscissors':
 			case 'scissorspaper':
@@ -63,34 +75,32 @@
 
 
 	function playGame(){
-		var playUntil = 5;
+		
 		var winner = playRound();
-		var playerAwin = 0
-		var playerBwin = 0
+		var playUntil = 5;
 		
 
 
 			// if (winner == 1) {
-			// 	playerAwin++;
+			// 	playerA.score++;
 			// } else if (winner == -1) {
-			// 	playerBwin++;
+			// 	playerB.score++;
 			// }
 
 			// while (playerAwin < playUntil && playerBwin < playUntil) {
 			// 	playRound();
 			// }
+            playRound() 
 
-			while(playerAwin < playUntil && playerBwin < playUntil){
-				playRound() 
-    			
+			while(playerA.score < playUntil && playerB.score < playUntil){
 					if (winner == +1) {
-						playerAwin++;
+						playerA.score++;
 					} else if (winner == -1) {
-						playerBwin++;
+						playerB.score++;
 					}
-			}
+    			}
 
-			if (playerAwin > playerBwin) {
+			if (playerA.score > playerB.score) {
 				console.log(playerA.name + ' is the game winner!');
 			} else {
 				console.log(playerB.name + ' is the game winner!');
