@@ -29,7 +29,6 @@
 
 
 
-
 	function playRound() {
 
 		playerA = {
@@ -48,24 +47,24 @@
 			case 'rockscissors':
 			case 'scissorspaper':
 			case 'paperrock':
-				console.log(playerA.name + ': ' + playerA.playHand);
-				console.log(playerB.name + ': ' + playerB.playHand);
+				// console.log(playerA.name + ': ' + playerA.playHand);
+				// console.log(playerB.name + ': ' + playerB.playHand);
 				console.log(playerA.name + ' is the winner!');
 				return +1;
 				break;
 			case 'rockpaper':
 			case 'paperscissors':
 			case 'scissorsrock':
-				console.log(playerA.name + ': ' + playerA.playHand);
-				console.log(playerB.name + ': ' + playerB.playHand)
+				// console.log(playerA.name + ': ' + playerA.playHand);
+				// console.log(playerB.name + ': ' + playerB.playHand)
 				console.log(playerB.name + ' is the winner!');
 				return -1;
 				break;
 			case 'scissorsscissors':
 			case 'rockrock':
 			case 'paperpaper':
-				console.log(playerA.name + ': ' + playerA.playHand)
-				console.log(playerB.name + ': ' + playerB.playHand)
+				// console.log(playerA.name + ': ' + playerA.playHand)
+				// console.log(playerB.name + ': ' + playerB.playHand)
 				console.log("It's a tie! Try again!");
 				return null;
 				break;
@@ -75,40 +74,40 @@
 
 
 	function playGame(){
-		
-		var winner = playRound();
 		var playUntil = 5;
 		
+		
 
-
-			// if (winner == 1) {
+			// if (playRound() == 1) {
 			// 	playerA.score++;
-			// } else if (winner == -1) {
+			// } else if (playRound() == -1) {
 			// 	playerB.score++;
 			// }
 
-			// while (playerAwin < playUntil && playerBwin < playUntil) {
-			// 	playRound();
-			// }
-            playRound() 
+	// 		// while (playerAwin < playUntil && playerBwin < playUntil) {
+	// 		// 	playRound();
+	// 		// }
+    
 
-			while(playerA.score < playUntil && playerB.score < playUntil){
-					if (winner == +1) {
-						playerA.score++;
-					} else if (winner == -1) {
-						playerB.score++;
+			// while(playerA.score < playUntil && playerB.score < playUntil){
+				if (playRound() == 1) {
+					playerA.score++;
+				} else if (playRound() == -1) {
+					playerB.score++;
 					}
-    			}
+    			// }
 
-			if (playerA.score > playerB.score) {
-				console.log(playerA.name + ' is the game winner!');
-			} else {
-				console.log(playerB.name + ' is the game winner!');
-			}
+			// if (playerA.score > playerB.score) {
+			// 	console.log(playerA.name + ' is the game winner!');
+			// } else {
+			// 	console.log(playerB.name + ' is the game winner!');
+			// }
 		}
 
+		playGame();
+		console.log(playerA.score);
+		console.log(playerB.score);
 
-	playGame()
 
 
 	</script>
