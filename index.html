@@ -6,65 +6,57 @@
 
 	<script type="text/javascript">
 
-// RPS AGAIN T_T
+// RPS AGAIN T_T 
 
 
 	hands = ['rock','paper','scissors']
 
+
+// put players into one object arrary. makes it easier to add mmore players without adding more
+	players = [
+		{
+			name: 'player1',
+			playHand: getHand(),
+			score: 0,
+		},
+		{
+			name: 'player2',
+			playHand: getHand(),
+			score: 0,
+		},
+	]
+
+
+
 	function getHand(){
 		return hands[parseInt(Math.random()*10) %3];
+
 	}
-
-	playerA = {
-		name: 'JOE',
-		playHand: getHand(),
-		score: 0,
-	}
-
-	playerB = {
-		name: 'JIM',
-		playHand: getHand(),
-		score: 0,
-	};
-
-
 
 	function playRound() {
 
-		playerA = {
-		name: 'JOE',
-		playHand: getHand(),
-		score: 0,
-	}
-
-		playerB = {
-		name: 'JIM',
-		playHand: getHand(),
-		score: 0,
-	};
-
-		switch(playerA.playHand + playerB.playHand) {
+		switch(players[0].playHand + players[1].playHand) {
 			case 'rockscissors':
 			case 'scissorspaper':
 			case 'paperrock':
-				// console.log(playerA.name + ': ' + playerA.playHand);
-				// console.log(playerB.name + ': ' + playerB.playHand);
-				console.log(playerA.name + ' is the winner!');
-				return +1;
+				console.log(players[0].name + ': ' + players[0].playHand);
+				console.log(players[1].name + ': ' + players[1].playHand);
+				console.log(players[0].name + ' is the winner!');
+				players[0].score++;
 				break;
 			case 'rockpaper':
 			case 'paperscissors':
 			case 'scissorsrock':
-				// console.log(playerA.name + ': ' + playerA.playHand);
-				// console.log(playerB.name + ': ' + playerB.playHand)
-				console.log(playerB.name + ' is the winner!');
-				return -1;
+				console.log(players[0].name + ': ' + players[0].playHand);
+				console.log(players[1].name + ': ' + players[1].playHand);
+				console.log(players[1].name + ' is the winner!');
+				players[1].score++
 				break;
 			case 'scissorsscissors':
 			case 'rockrock':
 			case 'paperpaper':
-				// console.log(playerA.name + ': ' + playerA.playHand)
-				// console.log(playerB.name + ': ' + playerB.playHand)
+				console.log(players[0].name + ': ' + players[0].playHand);
+				console.log(players[1].name + ': ' + players[1].playHand);
 				console.log("It's a tie! Try again!");
 				return null;
 				break;
@@ -89,24 +81,23 @@
 	// 		// }
     
 
-			// while(playerA.score < playUntil && playerB.score < playUntil){
-				if (playRound() == 1) {
-					playerA.score++;
-				} else if (playRound() == -1) {
-					playerB.score++;
-					}
-    			// }
+			while(
+				players[0].score < playUntil && 
+				players[1].score < playUntil
+				){
+				playRound();
+    			} 
 
-			// if (playerA.score > playerB.score) {
-			// 	console.log(playerA.name + ' is the game winner!');
-			// } else {
-			// 	console.log(playerB.name + ' is the game winner!');
-			// }
+			if (players[0].score == playUntil) {
+				console.log(players[0].name + ' is the game winner!');
+			} else {
+				console.log(players[1].name  + ' is the game winner!');
+			}
 		}
 
-		playGame();
-		console.log(playerA.score);
-		console.log(playerB.score);
+	playGame();
+
+
 
 
 
